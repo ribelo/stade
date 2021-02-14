@@ -1,0 +1,5 @@
+{:paths ["src"]
+ :deps  {com.github.haifengl/smile-core {:mvn/version "2.6.0"}
+         com.github.haifengl/smile-math {:mvn/version "2.6.0"}
+         ribelo/halle                   {:git/url "https://github.com/ribelo/halle"
+                                         :sha     "46c7577e5dfbe84cac00f93ce5d605a38a490b98"}}}
