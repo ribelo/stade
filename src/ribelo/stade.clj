@@ -1,5 +1,5 @@
 (ns ribelo.stade
-  (:refer-clojure :exclude [min max])
+  (:refer-clojure :exclude [min max reverse])
   (:require
    [ribelo.halle :as h])
   (:import
