@@ -4,8 +4,7 @@
    [ribelo.halle :as h])
   (:import
    (smile.math MathEx)
-   (smile.sort QuickSelect)
-   (smile.validation.metric MSE RMSE)))
+   (smile.sort QuickSelect)))
 
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
@@ -108,18 +107,18 @@
 
 (defn q1
   ^double [xs]
-  (let [arr (h/seq->double-array-or-copy xs)]
-    (MathEx/q1 ^doubles arr)))
+  (let [^doubles arr (h/seq->double-array-or-copy xs)]
+    (MathEx/q1 arr)))
 
 (defn q2
   ^double [xs]
-  (let [arr (h/seq->double-array-or-copy xs)]
-    (MathEx/median ^doubles arr)))
+  (let [^doubles arr (h/seq->double-array-or-copy xs)]
+    (MathEx/median arr)))
 
 (defn q3
   ^double [xs]
-  (let [arr (h/seq->double-array-or-copy xs)]
-    (MathEx/q3 ^doubles arr)))
+  (let [^doubles arr (h/seq->double-array-or-copy xs)]
+    (MathEx/q3 arr)))
 
 (defn quartile
   "Quartilies of a sample"
@@ -162,19 +161,19 @@
   ^double [x-pred y-true]
   (let [^doubles pred-arr (h/seq->double-array x-pred)
         ^doubles true-arr (h/seq->double-array y-true)]
-     (smile.validation.metric.RMSE/of true-arr pred-arr)))
+    (smile.validation.metric.RMSE/of true-arr pred-arr)))
 
 (defn mad
   "Mean absolute deviation"
   ^double [xs]
-  (let [arr (h/seq->double-array xs)]
-    (MathEx/mad ^doubles arr)))
+  (let [^doubles arr (h/seq->double-array xs)]
+    (MathEx/mad arr)))
 
 (defn transpose
   "Returns the matrix transpose"
   ^doubles [coll2d]
-  (let [arr (h/seq->double-double-array coll2d)]
-    (MathEx/transpose ^doubles arr)))
+  (let [^doubles arr (h/seq->double-double-array coll2d)]
+    (MathEx/transpose arr)))
 
 (defn distance
   ^doubles [xs ys]
@@ -248,9 +247,9 @@
   (^doubles [arr2d]
    (MathEx/pdist ^"[[D" arr2d))
   (^doubles [xs1 xs2]
-   (let [^doubles axs (h/seq->double-array xs1)
-         ^doubles ayx (h/seq->double-array xs2)
-         ^"[[D" arr2d  (h/seq->double-double-array [axs ayx])]
+   (let [^doubles axs   (h/seq->double-array xs1)
+         ^doubles ayx   (h/seq->double-array xs2)
+         ^"[[D"   arr2d (h/seq->double-double-array [axs ayx])]
      (MathEx/pdist arr2d))))
 
 (defn pdist-manhatan
