@@ -1,0 +1,7 @@
+{:deps {:aliases [:cljs]}
+ :dev-http {8020 "resources"}
+ :builds
+ {:repl     {:target     :browser
+             :output-dir "resources/public/js"
+             :asset-path "js"
+             :modules    {:main    {:entries   [ribelo.stade]}}}}}
